@@ -38,7 +38,7 @@ export default function DetailID({ detail }) {
         {detail.vote_average}
       </div>
       <h2 className="mt-2 sm:text-lg font-bold">{detail.original_title}</h2>
-      {detail.tagline != "" ? <p>"{detail.tagline}" - Tagline</p> : null}
+      {detail.tagline ? <p>"{detail.tagline}" - Tagline</p> : null}
       <div className="mt-2 text-sm">
         <p className="font-bold sm:text-lg">Overview</p>
         {detail.overview}
