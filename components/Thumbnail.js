@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { useRouter } from "next/router";
 
 import {
   ThumbUpIcon,
@@ -6,11 +7,12 @@ import {
 } from "@heroicons/react/outline";
 
 const Thumbnail = ({ result }) => {
-  console.log(result)
+  const router = useRouter();
   const BASE_URL = "https://image.tmdb.org/t/p/original";
   return (
-    <div className="group cursor-pointer p-2 transition duration-200 ease-in transform sm:hover:scale-105 hover:z-50">
+    <div className="group cursor-pointer p-2 transition duration-200 ease-in transform sm:hover:scale-105 hover:z-50" onClick={() => router.push(`/detail/${result.id}`)}>
       <Image
+        className="rounded-md"
         layout="responsive"
         src={`${BASE_URL}${result.backdrop_path}`}
         width={1920}
